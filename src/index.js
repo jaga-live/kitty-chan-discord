@@ -1,5 +1,7 @@
 const { Client, GatewayIntentBits } = require("discord.js");
 const { validateBotMention, validateGreeting, language_filter } = require("./utils");
+const express = require('express')
+const app = express()
 require("dotenv").config();
 
 const client = new Client({
@@ -37,3 +39,6 @@ client.on("messageCreate", (message) => {
 });
 
 client.login(process.env.KITTY_CHAN_TOKEN);
+app.listen(5000, () => {
+  console.log('App Started')
+})

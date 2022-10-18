@@ -30,7 +30,6 @@ const language_filter = (message) => {
   let isStrongLanguage = false;
 
   message.map((e) => {
-    console.log(e);
     if (bad_words.includes(e)) isStrongLanguage = true;
   });
 
