@@ -56,6 +56,8 @@ const hinglish_words = [
   "kaam",
   "rhe",
   "bhi",
+  "arey",
+  "areyy",
 ];
 
 module.exports = {

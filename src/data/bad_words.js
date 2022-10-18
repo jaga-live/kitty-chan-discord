@@ -93,6 +93,7 @@ const bad_words = [
     "creampie",
     "cum",
     "cumming",
+    "cumslut",
     "cunnilingus",
     "cunt",
     "darkie",
