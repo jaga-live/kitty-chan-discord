@@ -37,10 +37,11 @@ const language_filter = (message) => {
   return isStrongLanguage;
 };
 
+///Detect Hindi
 const hinglish_filter = (message) => {
       message = message.toLowerCase().trim();
       message = message.split(" ");
-    let isHinglish = false;
+      let isHinglish = false;
     
       message.map((e) => {
         if (hinglish_words.includes(e)) isHinglish = true;

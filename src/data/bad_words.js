@@ -122,6 +122,7 @@ const bad_words = [
     "double penetration",
     "dp action",
     "dry hump",
+    "dumbass",
     "dvda",
     "eat my ass",
     "ecchi",

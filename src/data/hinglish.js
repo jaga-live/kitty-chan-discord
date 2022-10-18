@@ -3,8 +3,8 @@ const hinglish_words = [
   "acha",
   "kya",
   "raha",
-  "chotti",
   "bachi",
+  "bacha",
   "teri",
   "chutiya",
   "haan",
@@ -58,6 +58,11 @@ const hinglish_words = [
   "bhi",
   "arey",
   "areyy",
+  "choti",
+  "chotti",
+  "chota",
+  "chotta",
+  "payega",
 ];
 
 module.exports = {
