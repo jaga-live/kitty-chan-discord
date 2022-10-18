@@ -44,7 +44,7 @@ client.on("messageCreate", (message) => {
     message.reply(
       `Hey ${message.author}, Hindi detected. Please chat in English!`
     );
-    message.delete();
+    message.react("⚠");
   }
 
   //Check Bot Message
