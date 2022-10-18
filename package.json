@@ -1,0 +1,27 @@
+{
+  "name": "kitty-chan-discord",
+  "version": "1.0.0",
+  "description": "A discord bot specifically designed for Gamer's Hub Server",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src/index",
+    "start": "node ./src/index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaga-live/kitty-chan-discord.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaga-live/kitty-chan-discord/issues"
+  },
+  "homepage": "https://github.com/jaga-live/kitty-chan-discord#readme",
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "discord.js": "^14.6.0",
+    "dotenv": "^16.0.3"
+  }
+}
