@@ -1,5 +1,6 @@
 const { greetings } = require("./data/greetings");
 const { bad_words } = require("./data/bad_words");
+const { hinglish_words } = require("./data/hinglish");
 require("dotenv").config();
 const KITTY_CHAN_ID = process.env.KITTY_CHAN_ID;
 
@@ -36,8 +37,21 @@ const language_filter = (message) => {
   return isStrongLanguage;
 };
 
+const hinglish_filter = (message) => {
+      message = message.toLowerCase().trim();
+      message = message.split(" ");
+    let isHinglish = false;
+    
+      message.map((e) => {
+        if (hinglish_words.includes(e)) isHinglish = true;
+      });
+
+      return isHinglish;
+}
+
 module.exports = {
   validateBotMention,
   validateGreeting,
-  language_filter,
+    language_filter,
+  hinglish_filter
 };

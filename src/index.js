@@ -1,5 +1,5 @@
 const { Client, GatewayIntentBits } = require("discord.js");
-const { validateBotMention, validateGreeting, language_filter } = require("./utils");
+const { validateBotMention, validateGreeting, language_filter, hinglish_filter } = require("./utils");
 const express = require('express')
 const app = express()
 require("dotenv").config();
@@ -8,7 +8,7 @@ const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.MessageContent
   ],
 });
 const PREFIX = "$";
@@ -28,8 +28,20 @@ client.on("messageCreate", (message) => {
   if (filterStrongLanguage) {
     message.channel.send(`Hey ${message.author}, this text seems to contain inappropriate language. Please avoid this!`);
   }
-  const validateMessage = validateBotMention(message.content);
-  if (!validateMessage) return;
+  
+  //Filter Hindi
+  const filterHinglish = hinglish_filter(message.content);
+  if (filterHinglish) {
+    message.channel.send(
+      `Hey ${message.author}, Hindi detected. Please chat in English!`
+      );
+      message.delete()
+    }
+    
+    //Check Bot Message
+    const isBotMessage = validateBotMention(message.content);
+    if (!isBotMessage) return;
+    
 
   //Greet
   const greet = validateGreeting(validateMessage);
@@ -39,6 +51,6 @@ client.on("messageCreate", (message) => {
 });
 
 client.login(process.env.KITTY_CHAN_TOKEN);
-app.listen(5000, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log('App Started')
 })
