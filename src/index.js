@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits } = require("discord.js");
+const { Client, GatewayIntentBits, ActivityType } = require("discord.js");
 const { validateBotMention, validateGreeting, language_filter, hinglish_filter } = require("./utils");
 const express = require('express')
 const app = express()
@@ -13,7 +13,9 @@ const client = new Client({
 });
 const PREFIX = "$";
 
+
 client.on("ready", () => {
+  client.user.setActivity('with Jaga');
   console.log(client.user.username, "connected");
 });
 
@@ -44,7 +46,7 @@ client.on("messageCreate", (message) => {
     
 
   //Greet
-  const greet = validateGreeting(validateMessage);
+  const greet = validateGreeting(isBotMessage);
   if (greet) {
     message.channel.send(`Hello ${message.author}`);
   }
